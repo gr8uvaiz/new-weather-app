@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <style>
+        
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+    body{
+        font-family: 'Rubik', sans-serif;
+    }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+</head>
+
+<body>
+    <div class="w-5/6 container m-auto">
+
+        <nav class="my-6 flex justify-between items-center">
+            <a href="/src/index.html">
+                <i class="text-4xl fa-solid fa-cloud-bolt" style="color: #F5F5F5;"></i>
+            </a>
+            <ul class="flex justify-between space-x-5">
+                <li><a href="">Weather</a></li>
+                <li><a href="" onclick="toggleSearchBar()">Search</a></li>
+                <li><a href="">Code</a></li>
+            </ul>
+        </nav>
+
+        <!-- Search Bar -->
+        <div id="searchBar" class="flex hidden rounded-lg w-full p-4 z-50" style="background-color: rgba(56, 56, 59, 0.418);">
+            <input type="text" placeholder="Search city name" class=" bg-transparent w-full px-4 py-2 outline-none font-extrabold ">  
+            <input type="submit" class="cursor-pointer" id="searchicon">
+        </div>
+
+        <section class="flex my-4 flex-wrap h-auto md:h-96 justify-between">
+            <div class="flex justify-center items-center   w-full md:w-1/4 p-2 md:p-0">
+                <img id="weather" class="h-40" src="" alt="">
+            </div>
+            <div class="flex justify-center items-center   w-full md:w-1/4 p-2 md:p-0">
+                <div id="weather-info" class="space-y-4">
+                    <div class="text-6xl text-center font-bold" id="weather-measure">Search For Weather ☁️</div>
+                    
+                        <div class="text-xl font-bold">
+                            <div id="humidity"></div>
+                            <div id="wind-speed"></div>
+                            <div id="city-name"></div>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="flex justify-center items-center md:mt-0 mt-7  w-full md:w-1/4 p-2 md:p-0">
+                <div class="text-6xl text-center font-bold" id="time">12:30:40</div>
+            </div>
+        </section>
+
+
+        <!-- <section class="flex justify-between">
+            <div class="container mx-auto p-4">
+                <div class="grid  sm:grid-cols-2 md:grid-cols-4 gap-4">
+
+                    <div style="background-color: #36373c;" class="rounded p-4 ">
+                        <div class="text-2xl font-light mb-4">Monday</div>
+                        <div class="flex space-x-4 items-center m-auto">
+                            <img src="../assets/rain.png" class="h-16" alt="">
+                            <div class="temp md:text-xl text-5xl font-extrabold">21°C</div>
+                        </div>
+                    </div>
+                    <div style="background-color: #36373c;" class="rounded p-4 ">
+                        <div class="text-2xl font-light mb-4">Monday</div>
+                        <div class="flex space-x-4 items-center m-auto">
+                            <img src="../assets/rain.png" class="h-16" alt="">
+                            <div class="temp md:text-xl text-5xl font-extrabold">21°C</div>
+                        </div>
+                    </div>
+                    <div style="background-color: #36373c;" class="rounded p-4 ">
+                        <div class="text-2xl font-light mb-4">Monday</div>
+                        <div class="flex space-x-4 items-center m-auto">
+                            <img src="../assets/rain.png" class="h-16" alt="">
+                            <div class="temp md:text-xl text-5xl font-extrabold">21°C</div>
+                        </div>
+                    </div>
+                    <div style="background-color: #36373c;" class="rounded p-4 ">
+                        <div class="text-2xl font-light mb-4">Monday</div>
+                        <div class="flex space-x-4 items-center m-auto">
+                            <img src="../assets/rain.png" class="h-16" alt="">
+                            <div class="temp md:text-xl text-5xl font-extrabold">21°C</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section> -->
+    </div>
+</body>
+<script>
+    function toggleSearchBar() {
+        event.preventDefault();
+        const searchBar = document.getElementById('searchBar');
+        searchBar.classList.toggle('hidden');
+    }
+</script>
+<script src="https://unpkg.com/vanilla-draggable@1.0.0/dist/vanilla-draggable.umd.js"></script>
+<script src="./static-script.js"></script>
+<script src="./dynamic-script.js"></script>
+<script src="https://kit.fontawesome.com/338e4173fa.js" crossorigin="anonymous"></script>
+
+</html>
