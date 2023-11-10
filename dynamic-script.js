@@ -43,17 +43,23 @@ const getCity =  () =>{
 }
 const getWeather = async (city) => {
     const api_key = `51532aa70851640ef06df10634514fc3`;
+    console.log(city)
     if (city != '') {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
-        const data = await fetch(url);
-        const res = await data.json();
-        console.log(res)
-        setWeather(res);
-        setbgimg(res.weather[0].description);
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+            const data = await fetch(url);
+            const res = await data.json();
+            if(res.message != 'city not found'){
+                setWeather(res);
+                setbgimg(res.weather[0].description);
+            }
+            else{
+                weather_measure.textContent = "City Not Found";
+                return
+            }
+      
     }
 }
 const setWeather = (res) => {
-    console.log(res)
     city_name.textContent = "Location : "+res.name;
     // weather_style.textContent = res.weather[0].description;
     weather_measure.textContent = Math.round(res.main.temp - 273.15) + `°`;
@@ -79,8 +85,6 @@ setInterval(updateTime, 1000);
 // }
 
 const setbgimg = (key) => {
-    console.log(key);
-
     if (key == 'overcast clouds') {
         weatherimg.src = './assets/cloud.png';
     }
@@ -126,7 +130,7 @@ const setbgimg = (key) => {
         weatherimg.src = './assets/haze.png';
     }
 
-
+    
 }
 // setdate();
 // getCity();
